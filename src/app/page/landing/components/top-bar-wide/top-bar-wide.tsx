@@ -2,10 +2,11 @@
 
 import { faBars, faGlobe, faMagnifyingGlass, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import React, { useState } from "react";
 import { TopBarWideStyles } from "./top-bar-wide-styles";
 import FullLogo from "@/app/components/full-logo/full-logo";
 import MidLogo from "@/app/components/mid-logo/mid-logo";
+import { Dropdown } from "react-bootstrap";
 
 export default function TopBarWide() {
     const [isHoverSearch, setIsHoverSearch] = useState(false);
@@ -14,6 +15,33 @@ export default function TopBarWide() {
     const [isHoverUser, setIsHoverUser] = useState(false);
     const [clickedSearch, setClickedSearch] = useState(false);
     const [searchType, setSearchType] = useState(0);
+    const [destination, setDestination] = useState('');
+
+    // console.log(destination);
+
+    // const searchName = (input: string) => {
+    //     var inputLowerCase = input.toLowerCase();
+    //     var result = [];
+    //     var places = ['Hong Kong', 'New York', 'Toronto'];
+    //     places.forEach(place => {
+    //         if (place.includes(inputLowerCase)) {
+    //             result.push(place);
+    //         }
+    //     });
+    //     console.log(result);
+    // }
+    const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
+        <button
+            onClick={(e) => {
+                e.preventDefault();
+                onClick(e);
+            }}
+            style={TopBarWideStyles.AdvancedSearchBoxLeftBtn}>
+            <b style={TopBarWideStyles.AdvancedSearchBoxTitle}>Where</b>
+            <input placeholder="Search destinations" style={TopBarWideStyles.AdvancedSearchBoxSubTitle}>
+            </input>
+        </button>
+    ));
 
     return (
         <div style={TopBarWideStyles.TopBarContainer}>
@@ -107,12 +135,67 @@ export default function TopBarWide() {
                 {
                     clickedSearch &&
                     <div style={TopBarWideStyles.AdvancedSearchBox}>
-                        <button style={TopBarWideStyles.AdvancedSearchBoxLeftBtn}>
-                            <b style={TopBarWideStyles.AdvancedSearchBoxTitle}>Where</b>
-                            <div style={TopBarWideStyles.AdvancedSearchBoxSubTitle}>
-                                Search destinations
-                            </div>
-                        </button>
+                        <Dropdown>
+                            <Dropdown.Toggle as={CustomToggle} id="dropdown-custom-components" >
+                                <b style={TopBarWideStyles.AdvancedSearchBoxTitle}>Where</b>
+
+                                <input placeholder="Search destinations" style={TopBarWideStyles.AdvancedSearchBoxSubTitle} onChange={(event) => setDestination(event.target.value)}>
+                                </input>
+                            </Dropdown.Toggle>
+
+                            <Dropdown.Menu style={{
+                                padding: 20,
+                                borderRadius: 30,
+                                borderWidth: 0,
+                                marginTop: 17,
+                            }}>
+                                <b style={TopBarWideStyles.AdvancedSearchBoxTitle}>Search by region</b>
+                                <div style={{ display: 'flex', flexDirection: 'row', marginTop: 10, marginBottom: 20 }}>
+                                    <div>
+                                        <Dropdown.Item href="#/action-1" style={TopBarWideStyles.selectItem}>
+                                            <img src="https://a0.muscache.com/pictures/f9ec8a23-ed44-420b-83e5-10ff1f071a13.jpg" style={TopBarWideStyles.selectItemImg} />
+                                        </Dropdown.Item>
+                                        <div style={TopBarWideStyles.selectItemText}>I'm flexible</div>
+                                    </div>
+                                    <div>
+                                        <Dropdown.Item href="#/action-2" style={TopBarWideStyles.selectItem}>
+                                            <img src="https://a0.muscache.com/im/pictures/7b5cf816-6c16-49f8-99e5-cbc4adfd97e2.jpg?im_w=320" style={TopBarWideStyles.selectItemImg} />
+                                        </Dropdown.Item>
+                                        <div style={TopBarWideStyles.selectItemText}>Europe</div>
+                                    </div>
+                                    <div>
+                                        <Dropdown.Item href="#/action-3" style={TopBarWideStyles.selectItem}>
+                                            <img src="https://a0.muscache.com/im/pictures/26891a81-b9db-4a9c-8aab-63486b7e627c.jpg?im_w=320" style={TopBarWideStyles.selectItemImg} />
+                                        </Dropdown.Item>
+                                        <div style={TopBarWideStyles.selectItemText}>Japan</div>
+                                    </div>
+                                </div>
+                                <div style={{ display: 'flex', flexDirection: 'row' }}>
+                                    <div>
+                                        <Dropdown.Item href="#/action-4" style={TopBarWideStyles.selectItem}>
+                                            <img src="https://a0.muscache.com/im/pictures/d77de9f5-5318-4571-88c7-e97d2355d20a.jpg?im_w=320" style={TopBarWideStyles.selectItemImg} />
+                                        </Dropdown.Item>
+                                        <div style={TopBarWideStyles.selectItemText}> Southeast Asia</div>
+                                    </div>
+
+                                    <div>
+                                        <Dropdown.Item href="#/action-5" style={TopBarWideStyles.selectItem}>
+                                            <img src="https://a0.muscache.com/im/pictures/dbb2b5ef-2efe-4099-81ac-c7b957f384ed.jpg?im_w=320" style={TopBarWideStyles.selectItemImg} />
+                                        </Dropdown.Item>
+                                        <div style={TopBarWideStyles.selectItemText}> United Kingdom</div>
+                                    </div>
+
+                                    <div>
+                                        <Dropdown.Item href="#/action-6" style={TopBarWideStyles.selectItem}>
+                                            <img src="https://a0.muscache.com/im/pictures/42a1fb0f-214c-41ec-b9d7-135fbbdb8316.jpg?im_w=320" style={TopBarWideStyles.selectItemImg} />
+                                        </Dropdown.Item>
+                                        <div style={TopBarWideStyles.selectItemText}> Australia </div>
+                                    </div>
+                                </div>
+
+                            </Dropdown.Menu>
+                        </Dropdown>
+
                         <div style={TopBarWideStyles.AdvancedSearchBoxSeaprateLine} />
                         <button style={TopBarWideStyles.AdvancedSearchBoxMiddleBtn}>
                             <b style={TopBarWideStyles.AdvancedSearchBoxTitle}>Check in</b>

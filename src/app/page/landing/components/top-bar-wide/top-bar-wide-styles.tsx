@@ -174,4 +174,21 @@ export const TopBarWideStyles = {
         paddingBottom: '.75rem',
         borderBottomColor: 'black',
     },
+
+    selectItem: {
+        width: '9rem',
+        padding: 0,
+        borderRadius: 20,
+        marginRight: '1rem',
+    },
+    selectItemImg: {
+        width: '100%',
+        objectFit: 'contain',
+        borderRadius: 20,
+        borderWidth: 1,
+    },
+    selectItemText: {
+        fontWeight: 300,
+        fontSize: '0.875rem',
+    },
 }
