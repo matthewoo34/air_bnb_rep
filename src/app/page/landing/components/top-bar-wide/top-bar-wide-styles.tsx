@@ -27,17 +27,20 @@ export const TopBarWideStyles = {
         borderBottomLeftRadius: 30,
         borderTopWidth: 1,
         borderBottomWidth: 1,
+        textOverflow: 'ellipsis',
     },
     SearchBoxLeftBtnText: {
         margin: '.75rem',
         borderRightWidth: 2,
         paddingRight: '.75rem',
         paddingLeft: '.75rem',
+        minWidth: '6.25rem',
     },
     SearchBoxMidBtn: {
         borderTopWidth: 1,
         borderBottomWidth: 1,
         padding: '.75rem',
+        minWidth: '6.25rem',
     },
     SearchBoxRightBtn: {
         borderTopRightRadius: 30,
@@ -54,6 +57,7 @@ export const TopBarWideStyles = {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        minWidth: '9.25rem',
     },
     SearchBoxSearchIcon: {
         marginLeft: '.75rem',

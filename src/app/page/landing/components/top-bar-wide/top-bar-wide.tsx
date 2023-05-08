@@ -7,6 +7,7 @@ import { TopBarWideStyles } from "./top-bar-wide-styles";
 import FullLogo from "@/app/components/full-logo/full-logo";
 import MidLogo from "@/app/components/mid-logo/mid-logo";
 import { Dropdown } from "react-bootstrap";
+import { BigScreen, MediumScreen } from "@/app/helper/responsive-size";
 
 export default function TopBarWide() {
     const [isHoverSearch, setIsHoverSearch] = useState(false);
@@ -17,19 +18,6 @@ export default function TopBarWide() {
     const [searchType, setSearchType] = useState(0);
     const [destination, setDestination] = useState('');
 
-    // console.log(destination);
-
-    // const searchName = (input: string) => {
-    //     var inputLowerCase = input.toLowerCase();
-    //     var result = [];
-    //     var places = ['Hong Kong', 'New York', 'Toronto'];
-    //     places.forEach(place => {
-    //         if (place.includes(inputLowerCase)) {
-    //             result.push(place);
-    //         }
-    //     });
-    //     console.log(result);
-    // }
     const CustomToggle = React.forwardRef(({ children, onClick }, ref) => (
         <button
             onClick={(e) => {
@@ -47,7 +35,16 @@ export default function TopBarWide() {
         <div style={TopBarWideStyles.TopBarContainer}>
             <div style={TopBarWideStyles.TopRowContainer}>
                 <a className="logo" aria-label="Airbnb homepage" href="/" style={TopBarWideStyles.LogoLink}>
-                    <FullLogo />
+
+                    <BigScreen>
+                        <FullLogo />
+                    </BigScreen>
+
+
+                    <MediumScreen>
+                        <MidLogo />
+                    </MediumScreen>
+
                     {/* <MidLogo/> */}
                 </a>
                 <div>
