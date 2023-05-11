@@ -6,6 +6,7 @@ import BnbTypeList from './page/landing/components/bnb-type-list/bnb-type-list'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { SmallScreen } from './helper/responsive-size';
 import { useMediaQuery } from 'react-responsive';
+import TopBarNarrow from './page/landing/components/top-bar-narrow/top-bar-narrow'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +22,7 @@ export default function Home() {
         isDesktopOrLaptop ?
           <TopBarWide />
           :
-          <div></div>
+          <TopBarNarrow />
       }
       <BnbTypeList />
     </div>
