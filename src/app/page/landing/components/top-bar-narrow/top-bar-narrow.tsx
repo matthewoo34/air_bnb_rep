@@ -13,7 +13,7 @@ export default function TopBarNarrow() {
 
     return (
         <div style={TopBarNarrowStyles.outterContainer}>
-            <button style={TopBarNarrowStyles.searchBar}>
+            <div style={TopBarNarrowStyles.searchBar}>
                 <FontAwesomeIcon icon={faSearch} style={TopBarNarrowStyles.searchBarIcon} />
                 <div style={TopBarNarrowStyles.textContainer}>
                     <b>Anywhere</b>
@@ -22,7 +22,7 @@ export default function TopBarNarrow() {
                 <button>
                     <FontAwesomeIcon icon={faSliders} style={TopBarNarrowStyles.rightSearchBarIcon} />
                 </button>
-            </button>
+            </div>
         </div >
     )
 }

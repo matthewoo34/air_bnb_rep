@@ -6,13 +6,14 @@ export const BnbTypeListStyles = {
     },
     typeBtn: {
         padding: '.5rem',
+        paddingBottom: 0,
     },
     imageContainer: {
         display: 'flex',
         justifyContent: 'center',
     },
     image: {
-        width: '2rem',
+        minWidth: '2rem',
         height: '2rem',
         marginBottom: '.25rem',
     },
